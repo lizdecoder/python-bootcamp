@@ -35,7 +35,7 @@ if direction == 'left':
   if action == "wait":
     door = input("You have arrived safely to a building with three doors. Which door would you like to enter through? Red, Yellow, or Blue?").lower()
     if door == 'blue':
-      print("You have been eating by blood sucking insects! Game Over!")
+      print("You have been eaten by blood sucking insects! Game Over!")
     elif door == 'red':
       print("You have been burned by fire! Game Over!")
     elif door == 'yellow':
