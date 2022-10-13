@@ -1,5 +1,5 @@
 # Python-bootcamp: 100 days of code 
-# Day 2 project
+# Day 2
 
 print('Welcome to the tip calculator.')
 bill = float(input('What was the total bill? $'))
