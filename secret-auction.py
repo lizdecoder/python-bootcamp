@@ -1,6 +1,7 @@
 import os
 from secret_auction_art import logo
 #HINT: You can call clear() to clear the output in the console.
+# can use to visualize code: https://pythontutor.com/visualize.html#mode=edit
 
 print(logo)
 
