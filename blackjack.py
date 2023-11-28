@@ -71,7 +71,6 @@ def calculate_score(cards):
     if len(cards) == 2: 
         if score == 21:
             score = 0
-    # if cards.count(11) > 0 and score > 21:
         elif score > 21:
             cards.remove(11)
             cards.append(1)
@@ -91,59 +90,61 @@ def compare(user_score, computer_score):
         else:
             print("else: you lose")
     
-
 cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
-game_continues = True
-game = input("Do you want to play a game of Blackjack? Type 'y' or 'n': ").lower()
 
-# print(logo)
 
-user_cards = []
-computer_cards = []
-user_cards = deal_card(2)
-computer_cards = deal_card(2)
-user_score = calculate_score(user_cards)
-computer_score = calculate_score(computer_cards)
+def blackjack():
+    game_continues = True
+    game = input("Do you want to play a game of Blackjack? Type 'y' or 'n': ").lower()
 
-print(f"Your cards: {user_cards}, current score: {user_score}")
-print(f"Computer's first card: {computer_cards[0]}, [[[[hidden card: {computer_cards[1]}]]], current score: {computer_score}.")
+    print(logo)
 
-if game == 'y':
-    while game_continues:
+    if game == 'y':
+        user_cards = []
+        computer_cards = []
+        user_cards = deal_card(2)
+        computer_cards = deal_card(2)
+        user_score = calculate_score(user_cards)
+        computer_score = calculate_score(computer_cards)
 
-        if user_score == 0 or computer_score == 0 or user_score > 21:
-            print("inside if blackjack statement")
-            game_continues = False
-            # compare(user_score, computer_score)
+        print(f"Your cards: {user_cards}, current score: {user_score}")
+        print(f"Computer's first card: {computer_cards[0]}, [[[[hidden card: {computer_cards[1]}]]], current score: {computer_score}.")
         
-        # else:
-        draw_again = input("Do you want to draw another card. Type 'y' for yes and 'n' for no.: ").lower()
-        
-        if draw_again == 'y':
-            another_card = deal_card(1)
-            user_cards.extend(another_card)
-            user_score = calculate_score(user_cards)
-            print(f"Made it in if another_card, new card is: {another_card} with cards of {user_cards}, new score: {user_score}")
-            print(f"In another_card, Computer cards now: {computer_cards}, with computer score: {computer_score}")
-        elif draw_again == 'n':
-            if computer_score < 17:
-                computer_cards.extend(deal_card(1))
-                computer_score = calculate_score(computer_cards)   
-                print("'n' draw again: made it in else if statement") 
-        
-            game_continues = False     
-            print(f"Your final hand: {user_cards}, final score: {user_score}")
-            print(f"Computer's final hand: {computer_cards}, final score: {computer_score}")
-            compare(user_score, computer_score)
+        while game_continues:
 
-    # play_again = input("Do you wish to play again. Type 'y' for yes and 'n' for no.: ").lower()
-    # if play_again == 'y':
-    #     os.system('clear')
-    #     game_continues = True
-    # elif play_again == 'n':
-    #     print("Thank you for playing. The end.")
-else:        
-    print("You chose not to play Blackjack.")
+            if user_score == 0 or computer_score == 0 or user_score > 21:
+                print("inside if blackjack statement")
+                game_continues = False
+                compare(user_score, computer_score)
+            
+            else:
+                draw_again = input("Do you want to draw another card. Type 'y' for yes and 'n' for no.: ").lower()
+                
+                if draw_again == 'y':
+                    another_card = deal_card(1)
+                    user_cards.extend(another_card)
+                    user_score = calculate_score(user_cards)
+                    print(f"Made it in if another_card, new card is: {another_card} with cards of {user_cards}, new score: {user_score}")
+                    print(f"In another_card, Computer cards now: {computer_cards}, with computer score: {computer_score}")
+                elif draw_again == 'n':
+                    if computer_score < 17:
+                        computer_cards.extend(deal_card(1))
+                        computer_score = calculate_score(computer_cards)   
+                        print("'n' draw again: made it in else if statement") 
+                
+                    game_continues = False     
+                    print(f"Your final hand: {user_cards}, final score: {user_score}")
+                    print(f"Computer's final hand: {computer_cards}, final score: {computer_score}")
+                    compare(user_score, computer_score)
 
-        
+        play_again = input("Do you wish to play again. Type 'y' for yes and 'n' for no.: ").lower()
+        if play_again == 'y':
+            os.system('clear')
+            blackjack()
+        elif play_again == 'n':
+            print("Thank you for playing. The end.")
+    else:        
+        print("You chose not to play Blackjack.")
+
+blackjack()
             
