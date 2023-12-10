@@ -45,7 +45,6 @@ def check_resources(choice):
     ingredients = MENU.get(choice).get('ingredients')
     for key in ingredients:
         if resources[key] < ingredients[key]:
-            # TODO Need to figure out how to loop through all ingredients that are depleted
             # not enough water and milk for cappuccino after latte
             print(f"Sorry, there is not enough {key} for coffee.")
             return False
