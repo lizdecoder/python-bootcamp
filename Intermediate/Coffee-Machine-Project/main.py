@@ -68,9 +68,7 @@ def deduct_ingredients(choice):
 
 
 resources_available = True
-count = 0
 profit = float(0)
-depleted_ingredients = []
 
 while resources_available:
     user_choice = input("What would you like? (espresso/latte/cappuccino) ")
@@ -78,7 +76,6 @@ while resources_available:
         current_resources(profit)
     elif user_choice in MENU:
         if check_resources(user_choice):
-            count += 1
             print("Please insert coins.")
             quarters = int(input("How many quarters?: "))
             dimes = int(input("How many dimes?: "))
