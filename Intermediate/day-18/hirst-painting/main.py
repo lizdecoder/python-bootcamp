@@ -50,6 +50,7 @@ number_of_dots = 100
 #     horizontal_move()
 #     # y_pos += 50
 
+# solution
 for dot_count in range(1, number_of_dots + 1):
     tim.dot(20, random.choice(color_list))
     tim.forward(50)
